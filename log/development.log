@@ -1,0 +1,1375 @@
+  [1m[35m (546.4ms)[0m  [1m[35mCREATE DATABASE "music_app_development" ENCODING = 'unicode'[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (482.0ms)[0m  [1m[35mCREATE DATABASE "music_app_test" ENCODING = 'unicode'[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (32.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (26.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateUsers (20190401192647)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (42.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401192647_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401192647"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateGenres (20190401193150)
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (18.9ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401193150_create_genres.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401193150"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateArtists (20190401193301)
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "bio" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401193301_create_artists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401193301"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateAlbums (20190401193445)
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (17.3ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "name" character varying, "release_year" integer, "artist_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401193445_create_albums.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401193445"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateSongs (20190401193545)
+  [1m[35m (13.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "songs" ("id" bigserial primary key, "name" character varying, "album_id" integer, "artist_id" integer, "genre_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401193545_create_songs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401193545"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateUserGenres (20190401195228)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "user_genres" ("id" bigserial primary key, "user_id" integer, "genre_id" integer, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401195228_create_user_genres.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401195228"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateUserArtists (20190401195305)
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "user_artists" ("id" bigserial primary key, "user_id" integer, "artist_id" integer, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401195305_create_user_artists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401195305"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateUserAlbums (20190401195317)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (17.3ms)[0m  [1m[35mCREATE TABLE "user_albums" ("id" bigserial primary key, "user_id" integer, "album_id" integer, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401195317_create_user_albums.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401195317"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateUserSongs (20190401195330)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "user_songs" ("id" bigserial primary key, "user_id" integer, "song_id" integer, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401195330_create_user_songs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401195330"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreatePlaylists (20190401195524)
+  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (26.5ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401195524_create_playlists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401195524"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreatePlaylistSongs (20190401195540)
+  [1m[35m (11.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "playlist_songs" ("id" bigserial primary key, "playlist_id" integer, "song_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190401195540_create_playlist_songs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190401195540"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-04-01 20:45:03.265331"], ["updated_at", "2019-04-01 20:45:03.265331"]]
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGenre Load (0.6ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mArtist Load (0.7ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ db/seeds.rb:11
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ db/seeds.rb:13
+  [1m[36mPlaylist Load (0.8ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUserSong Load (1.2ms)[0m  [1m[34mSELECT "user_songs".* FROM "user_songs"[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUserArtist Load (0.7ms)[0m  [1m[34mSELECT "user_artists".* FROM "user_artists"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUserAlbum Load (0.6ms)[0m  [1m[34mSELECT "user_albums".* FROM "user_albums"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUserGenre Load (0.6ms)[0m  [1m[34mSELECT "user_genres".* FROM "user_genres"[0m
+  ↳ db/seeds.rb:18
+  [1m[36mPlaylistSong Load (0.6ms)[0m  [1m[34mSELECT "playlist_songs".* FROM "playlist_songs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Phil"], ["created_at", "2019-04-01 20:45:08.183447"], ["updated_at", "2019-04-01 20:45:08.183447"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mGenre Create (0.7ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Punk Rock"], ["created_at", "2019-04-01 20:45:08.202208"], ["updated_at", "2019-04-01 20:45:08.202208"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mGenre Create (0.5ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pop"], ["created_at", "2019-04-01 20:45:08.206150"], ["updated_at", "2019-04-01 20:45:08.206150"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mGenre Create (0.6ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ska"], ["created_at", "2019-04-01 20:45:08.210648"], ["updated_at", "2019-04-01 20:45:08.210648"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mArtist Create (0.9ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bad Religion"], ["created_at", "2019-04-01 20:45:08.222605"], ["updated_at", "2019-04-01 20:45:08.222605"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mArtist Create (0.5ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rise Against"], ["created_at", "2019-04-01 20:45:08.227168"], ["updated_at", "2019-04-01 20:45:08.227168"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtist Create (0.4ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Backstreet Boys"], ["created_at", "2019-04-01 20:45:08.230707"], ["updated_at", "2019-04-01 20:45:08.230707"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mArtist Create (0.5ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "One Direction"], ["created_at", "2019-04-01 20:45:08.234172"], ["updated_at", "2019-04-01 20:45:08.234172"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mArtist Create (0.4ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Streetlight Manifesto"], ["created_at", "2019-04-01 20:45:08.238591"], ["updated_at", "2019-04-01 20:45:08.238591"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mArtist Load (0.9ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mAlbum Create (1.2ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "No Control"], ["release_year", 1992], ["artist_id", 1], ["created_at", "2019-04-01 20:45:08.279527"], ["updated_at", "2019-04-01 20:45:08.279527"]]
+  ↳ db/seeds.rb:33
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mArtist Load (0.7ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Process of Belief"], ["release_year", 2004], ["artist_id", 1], ["created_at", "2019-04-01 20:45:08.292894"], ["updated_at", "2019-04-01 20:45:08.292894"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mArtist Load (0.8ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mAlbum Create (1.7ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Sufferer and the Witness"], ["release_year", 2008], ["artist_id", 2], ["created_at", "2019-04-01 20:45:08.303989"], ["updated_at", "2019-04-01 20:45:08.303989"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Appeal to Reason"], ["release_year", 2006], ["artist_id", 2], ["created_at", "2019-04-01 20:45:08.313422"], ["updated_at", "2019-04-01 20:45:08.313422"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mArtist Load (0.5ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Never Gone"], ["release_year", 2004], ["artist_id", 3], ["created_at", "2019-04-01 20:45:08.322028"], ["updated_at", "2019-04-01 20:45:08.322028"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:38
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Millenium"], ["release_year", 1999], ["artist_id", 3], ["created_at", "2019-04-01 20:45:08.328222"], ["updated_at", "2019-04-01 20:45:08.328222"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Up All Night"], ["release_year", 2010], ["artist_id", 4], ["created_at", "2019-04-01 20:45:08.333062"], ["updated_at", "2019-04-01 20:45:08.333062"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Take Me Home"], ["release_year", 2012], ["artist_id", 4], ["created_at", "2019-04-01 20:45:08.338675"], ["updated_at", "2019-04-01 20:45:08.338675"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:41
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Hands That Thieve"], ["release_year", 2012], ["artist_id", 5], ["created_at", "2019-04-01 20:45:08.344975"], ["updated_at", "2019-04-01 20:45:08.344975"]]
+  ↳ db/seeds.rb:41
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Everything Goes Numb"], ["release_year", 2004], ["artist_id", 5], ["created_at", "2019-04-01 20:45:08.351236"], ["updated_at", "2019-04-01 20:45:08.351236"]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:44
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mSong Create (1.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Henchman"], ["album_id", 1], ["artist_id", 1], ["genre_id", 1], ["created_at", "2019-04-01 20:45:08.371124"], ["updated_at", "2019-04-01 20:45:08.371124"]]
+  ↳ db/seeds.rb:44
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "I Want to Conquer the World"], ["album_id", 1], ["artist_id", 1], ["genre_id", 1], ["created_at", "2019-04-01 20:45:08.380026"], ["updated_at", "2019-04-01 20:45:08.380026"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:46
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Epiphany"], ["album_id", 2], ["artist_id", 1], ["genre_id", 1], ["created_at", "2019-04-01 20:45:08.387365"], ["updated_at", "2019-04-01 20:45:08.387365"]]
+  ↳ db/seeds.rb:46
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:46
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "The Defense"], ["album_id", 2], ["artist_id", 1], ["genre_id", 1], ["created_at", "2019-04-01 20:45:08.395441"], ["updated_at", "2019-04-01 20:45:08.395441"]]
+  ↳ db/seeds.rb:47
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:48
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Injection"], ["album_id", 3], ["artist_id", 2], ["genre_id", 1], ["created_at", "2019-04-01 20:45:08.402190"], ["updated_at", "2019-04-01 20:45:08.402190"]]
+  ↳ db/seeds.rb:48
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:48
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:49
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "The Good Left Undone"], ["album_id", 3], ["artist_id", 2], ["genre_id", 1], ["created_at", "2019-04-01 20:45:08.409329"], ["updated_at", "2019-04-01 20:45:08.409329"]]
+  ↳ db/seeds.rb:49
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:49
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:50
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:50
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:50
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Savior"], ["album_id", 4], ["artist_id", 2], ["genre_id", 1], ["created_at", "2019-04-01 20:45:08.416676"], ["updated_at", "2019-04-01 20:45:08.416676"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:51
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Re-Education Through Labor"], ["album_id", 4], ["artist_id", 2], ["genre_id", 1], ["created_at", "2019-04-01 20:45:08.423039"], ["updated_at", "2019-04-01 20:45:08.423039"]]
+  ↳ db/seeds.rb:51
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Incomplete"], ["album_id", 5], ["artist_id", 3], ["genre_id", 2], ["created_at", "2019-04-01 20:45:08.429559"], ["updated_at", "2019-04-01 20:45:08.429559"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:53
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:53
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:53
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "I Still"], ["album_id", 5], ["artist_id", 3], ["genre_id", 2], ["created_at", "2019-04-01 20:45:08.435959"], ["updated_at", "2019-04-01 20:45:08.435959"]]
+  ↳ db/seeds.rb:53
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "I Want It That Way"], ["album_id", 6], ["artist_id", 3], ["genre_id", 2], ["created_at", "2019-04-01 20:45:08.442305"], ["updated_at", "2019-04-01 20:45:08.442305"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:55
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Drowning"], ["album_id", 6], ["artist_id", 3], ["genre_id", 2], ["created_at", "2019-04-01 20:45:08.449149"], ["updated_at", "2019-04-01 20:45:08.449149"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "I Wish"], ["album_id", 7], ["artist_id", 4], ["genre_id", 2], ["created_at", "2019-04-01 20:45:08.455855"], ["updated_at", "2019-04-01 20:45:08.455855"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:57
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tell Me A Lie"], ["album_id", 7], ["artist_id", 4], ["genre_id", 2], ["created_at", "2019-04-01 20:45:08.462658"], ["updated_at", "2019-04-01 20:45:08.462658"]]
+  ↳ db/seeds.rb:57
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:57
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nobody Compares"], ["album_id", 8], ["artist_id", 4], ["genre_id", 2], ["created_at", "2019-04-01 20:45:08.469289"], ["updated_at", "2019-04-01 20:45:08.469289"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:59
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Heart Attack"], ["album_id", 8], ["artist_id", 4], ["genre_id", 2], ["created_at", "2019-04-01 20:45:08.476464"], ["updated_at", "2019-04-01 20:45:08.476464"]]
+  ↳ db/seeds.rb:59
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:60
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "The Hands That Thieve"], ["album_id", 9], ["artist_id", 5], ["genre_id", 3], ["created_at", "2019-04-01 20:45:08.482931"], ["updated_at", "2019-04-01 20:45:08.482931"]]
+  ↳ db/seeds.rb:60
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:61
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ungrateful"], ["album_id", 9], ["artist_id", 5], ["genre_id", 3], ["created_at", "2019-04-01 20:45:08.489688"], ["updated_at", "2019-04-01 20:45:08.489688"]]
+  ↳ db/seeds.rb:61
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:61
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:62
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "A Moment of Silence"], ["album_id", 10], ["artist_id", 5], ["genre_id", 3], ["created_at", "2019-04-01 20:45:08.496454"], ["updated_at", "2019-04-01 20:45:08.496454"]]
+  ↳ db/seeds.rb:62
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:63
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Point/Counterpoint"], ["album_id", 10], ["artist_id", 5], ["genre_id", 3], ["created_at", "2019-04-01 20:45:08.503848"], ["updated_at", "2019-04-01 20:45:08.503848"]]
+  ↳ db/seeds.rb:63
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:63
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" ORDER BY "songs"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/flatironschool/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:9
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mGenre Load (1.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mGenre Destroy (0.5ms)[0m  [1m[31mDELETE FROM "genres" WHERE "genres"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mGenre Destroy (0.5ms)[0m  [1m[31mDELETE FROM "genres" WHERE "genres"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mGenre Destroy (0.4ms)[0m  [1m[31mDELETE FROM "genres" WHERE "genres"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mArtist Destroy (0.4ms)[0m  [1m[31mDELETE FROM "artists" WHERE "artists"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:11
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mArtist Destroy (0.5ms)[0m  [1m[31mDELETE FROM "artists" WHERE "artists"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mArtist Destroy (0.7ms)[0m  [1m[31mDELETE FROM "artists" WHERE "artists"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:11
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mArtist Destroy (0.5ms)[0m  [1m[31mDELETE FROM "artists" WHERE "artists"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:11
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mArtist Destroy (0.5ms)[0m  [1m[31mDELETE FROM "artists" WHERE "artists"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:11
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mAlbum Load (0.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.5ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.4ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.5ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.4ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.4ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.5ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.6ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.5ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.4ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAlbum Destroy (0.4ms)[0m  [1m[31mDELETE FROM "albums" WHERE "albums"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.6ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.5ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 11]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 12]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 13]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.6ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 14]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 15]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 16]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 17]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.4ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mSong Destroy (0.5ms)[0m  [1m[31mDELETE FROM "songs" WHERE "songs"."id" = $1[0m  [["id", 20]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[36mPlaylist Load (0.6ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUserSong Load (0.7ms)[0m  [1m[34mSELECT "user_songs".* FROM "user_songs"[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUserArtist Load (0.7ms)[0m  [1m[34mSELECT "user_artists".* FROM "user_artists"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUserAlbum Load (0.6ms)[0m  [1m[34mSELECT "user_albums".* FROM "user_albums"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUserGenre Load (0.6ms)[0m  [1m[34mSELECT "user_genres".* FROM "user_genres"[0m
+  ↳ db/seeds.rb:18
+  [1m[36mPlaylistSong Load (0.6ms)[0m  [1m[34mSELECT "playlist_songs".* FROM "playlist_songs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Phil"], ["created_at", "2019-04-01 20:52:21.142952"], ["updated_at", "2019-04-01 20:52:21.142952"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mGenre Create (0.7ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Punk Rock"], ["created_at", "2019-04-01 20:52:21.152736"], ["updated_at", "2019-04-01 20:52:21.152736"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mGenre Create (0.7ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pop"], ["created_at", "2019-04-01 20:52:21.162142"], ["updated_at", "2019-04-01 20:52:21.162142"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mGenre Create (0.7ms)[0m  [1m[32mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ska"], ["created_at", "2019-04-01 20:52:21.167705"], ["updated_at", "2019-04-01 20:52:21.167705"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mArtist Create (0.9ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bad Religion"], ["created_at", "2019-04-01 20:52:21.173120"], ["updated_at", "2019-04-01 20:52:21.173120"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mArtist Create (1.0ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rise Against"], ["created_at", "2019-04-01 20:52:21.178509"], ["updated_at", "2019-04-01 20:52:21.178509"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mArtist Create (1.0ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Backstreet Boys"], ["created_at", "2019-04-01 20:52:21.183962"], ["updated_at", "2019-04-01 20:52:21.183962"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mArtist Create (0.7ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "One Direction"], ["created_at", "2019-04-01 20:52:21.189746"], ["updated_at", "2019-04-01 20:52:21.189746"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mArtist Create (1.1ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Streetlight Manifesto"], ["created_at", "2019-04-01 20:52:21.195185"], ["updated_at", "2019-04-01 20:52:21.195185"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mArtist Load (0.7ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mAlbum Create (0.8ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "No Control"], ["release_year", 1992], ["artist_id", 6], ["created_at", "2019-04-01 20:52:21.220149"], ["updated_at", "2019-04-01 20:52:21.220149"]]
+  ↳ db/seeds.rb:33
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Process of Belief"], ["release_year", 2004], ["artist_id", 6], ["created_at", "2019-04-01 20:52:21.231513"], ["updated_at", "2019-04-01 20:52:21.231513"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Sufferer and the Witness"], ["release_year", 2008], ["artist_id", 7], ["created_at", "2019-04-01 20:52:21.241931"], ["updated_at", "2019-04-01 20:52:21.241931"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Appeal to Reason"], ["release_year", 2006], ["artist_id", 7], ["created_at", "2019-04-01 20:52:21.247637"], ["updated_at", "2019-04-01 20:52:21.247637"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Never Gone"], ["release_year", 2004], ["artist_id", 8], ["created_at", "2019-04-01 20:52:21.252588"], ["updated_at", "2019-04-01 20:52:21.252588"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:38
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Millenium"], ["release_year", 1999], ["artist_id", 8], ["created_at", "2019-04-01 20:52:21.256989"], ["updated_at", "2019-04-01 20:52:21.256989"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Up All Night"], ["release_year", 2010], ["artist_id", 9], ["created_at", "2019-04-01 20:52:21.261513"], ["updated_at", "2019-04-01 20:52:21.261513"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Take Me Home"], ["release_year", 2012], ["artist_id", 9], ["created_at", "2019-04-01 20:52:21.266358"], ["updated_at", "2019-04-01 20:52:21.266358"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:41
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "The Hands That Thieve"], ["release_year", 2012], ["artist_id", 10], ["created_at", "2019-04-01 20:52:21.270735"], ["updated_at", "2019-04-01 20:52:21.270735"]]
+  ↳ db/seeds.rb:41
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mAlbum Create (0.4ms)[0m  [1m[32mINSERT INTO "albums" ("name", "release_year", "artist_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Everything Goes Numb"], ["release_year", 2004], ["artist_id", 10], ["created_at", "2019-04-01 20:52:21.275079"], ["updated_at", "2019-04-01 20:52:21.275079"]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:44
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Henchman"], ["album_id", 11], ["artist_id", 6], ["genre_id", 4], ["created_at", "2019-04-01 20:52:21.285070"], ["updated_at", "2019-04-01 20:52:21.285070"]]
+  ↳ db/seeds.rb:44
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "I Want to Conquer the World"], ["album_id", 11], ["artist_id", 6], ["genre_id", 4], ["created_at", "2019-04-01 20:52:21.292158"], ["updated_at", "2019-04-01 20:52:21.292158"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:46
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Epiphany"], ["album_id", 12], ["artist_id", 6], ["genre_id", 4], ["created_at", "2019-04-01 20:52:21.299035"], ["updated_at", "2019-04-01 20:52:21.299035"]]
+  ↳ db/seeds.rb:46
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:46
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "The Defense"], ["album_id", 12], ["artist_id", 6], ["genre_id", 4], ["created_at", "2019-04-01 20:52:21.305845"], ["updated_at", "2019-04-01 20:52:21.305845"]]
+  ↳ db/seeds.rb:47
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:48
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Injection"], ["album_id", 13], ["artist_id", 7], ["genre_id", 4], ["created_at", "2019-04-01 20:52:21.313035"], ["updated_at", "2019-04-01 20:52:21.313035"]]
+  ↳ db/seeds.rb:48
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:48
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:49
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "The Good Left Undone"], ["album_id", 13], ["artist_id", 7], ["genre_id", 4], ["created_at", "2019-04-01 20:52:21.320348"], ["updated_at", "2019-04-01 20:52:21.320348"]]
+  ↳ db/seeds.rb:49
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:49
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:50
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:50
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:50
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Savior"], ["album_id", 14], ["artist_id", 7], ["genre_id", 4], ["created_at", "2019-04-01 20:52:21.327171"], ["updated_at", "2019-04-01 20:52:21.327171"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:51
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Re-Education Through Labor"], ["album_id", 14], ["artist_id", 7], ["genre_id", 4], ["created_at", "2019-04-01 20:52:21.335371"], ["updated_at", "2019-04-01 20:52:21.335371"]]
+  ↳ db/seeds.rb:51
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Incomplete"], ["album_id", 15], ["artist_id", 8], ["genre_id", 5], ["created_at", "2019-04-01 20:52:21.342219"], ["updated_at", "2019-04-01 20:52:21.342219"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:53
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:53
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:53
+  [1m[36mSong Create (0.6ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "I Still"], ["album_id", 15], ["artist_id", 8], ["genre_id", 5], ["created_at", "2019-04-01 20:52:21.348897"], ["updated_at", "2019-04-01 20:52:21.348897"]]
+  ↳ db/seeds.rb:53
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "I Want It That Way"], ["album_id", 16], ["artist_id", 8], ["genre_id", 5], ["created_at", "2019-04-01 20:52:21.356586"], ["updated_at", "2019-04-01 20:52:21.356586"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:55
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Drowning"], ["album_id", 16], ["artist_id", 8], ["genre_id", 5], ["created_at", "2019-04-01 20:52:21.363883"], ["updated_at", "2019-04-01 20:52:21.363883"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "I Wish"], ["album_id", 17], ["artist_id", 9], ["genre_id", 5], ["created_at", "2019-04-01 20:52:21.370962"], ["updated_at", "2019-04-01 20:52:21.370962"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:57
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tell Me A Lie"], ["album_id", 17], ["artist_id", 9], ["genre_id", 5], ["created_at", "2019-04-01 20:52:21.382718"], ["updated_at", "2019-04-01 20:52:21.382718"]]
+  ↳ db/seeds.rb:57
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:57
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nobody Compares"], ["album_id", 18], ["artist_id", 9], ["genre_id", 5], ["created_at", "2019-04-01 20:52:21.389178"], ["updated_at", "2019-04-01 20:52:21.389178"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:59
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Heart Attack"], ["album_id", 18], ["artist_id", 9], ["genre_id", 5], ["created_at", "2019-04-01 20:52:21.395362"], ["updated_at", "2019-04-01 20:52:21.395362"]]
+  ↳ db/seeds.rb:59
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:60
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "The Hands That Thieve"], ["album_id", 19], ["artist_id", 10], ["genre_id", 6], ["created_at", "2019-04-01 20:52:21.402410"], ["updated_at", "2019-04-01 20:52:21.402410"]]
+  ↳ db/seeds.rb:60
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:61
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ungrateful"], ["album_id", 19], ["artist_id", 10], ["genre_id", 6], ["created_at", "2019-04-01 20:52:21.409431"], ["updated_at", "2019-04-01 20:52:21.409431"]]
+  ↳ db/seeds.rb:61
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:61
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:62
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mSong Create (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "A Moment of Silence"], ["album_id", 20], ["artist_id", 10], ["genre_id", 6], ["created_at", "2019-04-01 20:52:21.416562"], ["updated_at", "2019-04-01 20:52:21.416562"]]
+  ↳ db/seeds.rb:62
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:63
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "album_id", "artist_id", "genre_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Point/Counterpoint"], ["album_id", 20], ["artist_id", 10], ["genre_id", 6], ["created_at", "2019-04-01 20:52:21.424497"], ["updated_at", "2019-04-01 20:52:21.424497"]]
+  ↳ db/seeds.rb:63
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:63
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:65
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:65
+  [1m[36mPlaylist Create (0.9ms)[0m  [1m[32mINSERT INTO "playlists" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Phil playlist 1"], ["user_id", 2], ["created_at", "2019-04-01 20:52:21.438607"], ["updated_at", "2019-04-01 20:52:21.438607"]]
+  ↳ db/seeds.rb:65
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:66
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:66
+  [1m[36mPlaylist Create (0.8ms)[0m  [1m[32mINSERT INTO "playlists" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "untitled playlist 3"], ["user_id", 2], ["created_at", "2019-04-01 20:52:21.444036"], ["updated_at", "2019-04-01 20:52:21.444036"]]
+  ↳ db/seeds.rb:66
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:66
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:67
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mPlaylist Create (0.4ms)[0m  [1m[32mINSERT INTO "playlists" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "boybands playlist"], ["user_id", 2], ["created_at", "2019-04-01 20:52:21.449453"], ["updated_at", "2019-04-01 20:52:21.449453"]]
+  ↳ db/seeds.rb:67
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:67
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:69
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:69
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ db/seeds.rb:69
+  [1m[36mPlaylistSong Create (0.8ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 1], ["song_id", 21], ["created_at", "2019-04-01 20:52:21.463950"], ["updated_at", "2019-04-01 20:52:21.463950"]]
+  ↳ db/seeds.rb:69
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:69
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:70
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:70
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ db/seeds.rb:70
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 1], ["song_id", 25], ["created_at", "2019-04-01 20:52:21.470350"], ["updated_at", "2019-04-01 20:52:21.470350"]]
+  ↳ db/seeds.rb:70
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:71
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:71
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:71
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 1], ["song_id", 29], ["created_at", "2019-04-01 20:52:21.476137"], ["updated_at", "2019-04-01 20:52:21.476137"]]
+  ↳ db/seeds.rb:71
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:71
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:72
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:72
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:72
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 1], ["song_id", 33], ["created_at", "2019-04-01 20:52:21.481995"], ["updated_at", "2019-04-01 20:52:21.481995"]]
+  ↳ db/seeds.rb:72
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:72
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:73
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ db/seeds.rb:73
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 1], ["song_id", 37], ["created_at", "2019-04-01 20:52:21.487498"], ["updated_at", "2019-04-01 20:52:21.487498"]]
+  ↳ db/seeds.rb:73
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:75
+  [1m[36mPlaylist Load (0.5ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:75
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ db/seeds.rb:75
+  [1m[36mPlaylistSong Create (0.5ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 2], ["song_id", 23], ["created_at", "2019-04-01 20:52:21.493632"], ["updated_at", "2019-04-01 20:52:21.493632"]]
+  ↳ db/seeds.rb:75
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:75
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:76
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:76
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ db/seeds.rb:76
+  [1m[36mPlaylistSong Create (0.5ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 2], ["song_id", 25], ["created_at", "2019-04-01 20:52:21.499465"], ["updated_at", "2019-04-01 20:52:21.499465"]]
+  ↳ db/seeds.rb:76
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:77
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 2], ["song_id", 30], ["created_at", "2019-04-01 20:52:21.505034"], ["updated_at", "2019-04-01 20:52:21.505034"]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:77
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:78
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 2], ["song_id", 33], ["created_at", "2019-04-01 20:52:21.511031"], ["updated_at", "2019-04-01 20:52:21.511031"]]
+  ↳ db/seeds.rb:78
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:78
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:79
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:79
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ db/seeds.rb:79
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 2], ["song_id", 37], ["created_at", "2019-04-01 20:52:21.517367"], ["updated_at", "2019-04-01 20:52:21.517367"]]
+  ↳ db/seeds.rb:79
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:79
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:80
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:80
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ db/seeds.rb:80
+  [1m[36mPlaylistSong Create (0.6ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 2], ["song_id", 39], ["created_at", "2019-04-01 20:52:21.523528"], ["updated_at", "2019-04-01 20:52:21.523528"]]
+  ↳ db/seeds.rb:80
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:80
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:82
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mPlaylistSong Create (0.5ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 33], ["created_at", "2019-04-01 20:52:21.529227"], ["updated_at", "2019-04-01 20:52:21.529227"]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:83
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:83
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:83
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 35], ["created_at", "2019-04-01 20:52:21.535506"], ["updated_at", "2019-04-01 20:52:21.535506"]]
+  ↳ db/seeds.rb:83
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:83
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:84
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:84
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ db/seeds.rb:84
+  [1m[36mPlaylistSong Create (0.6ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 31], ["created_at", "2019-04-01 20:52:21.542581"], ["updated_at", "2019-04-01 20:52:21.542581"]]
+  ↳ db/seeds.rb:84
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:84
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:85
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:85
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:85
+  [1m[36mPlaylistSong Create (0.6ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 34], ["created_at", "2019-04-01 20:52:21.549536"], ["updated_at", "2019-04-01 20:52:21.549536"]]
+  ↳ db/seeds.rb:85
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:85
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:86
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ db/seeds.rb:86
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 36], ["created_at", "2019-04-01 20:52:21.556808"], ["updated_at", "2019-04-01 20:52:21.556808"]]
+  ↳ db/seeds.rb:86
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:87
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:87
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ db/seeds.rb:87
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 30], ["created_at", "2019-04-01 20:52:21.562066"], ["updated_at", "2019-04-01 20:52:21.562066"]]
+  ↳ db/seeds.rb:87
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:87
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:88
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 29], ["created_at", "2019-04-01 20:52:21.569036"], ["updated_at", "2019-04-01 20:52:21.569036"]]
+  ↳ db/seeds.rb:88
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:88
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:89
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+  [1m[36mPlaylistSong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlist_songs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["playlist_id", 3], ["song_id", 32], ["created_at", "2019-04-01 20:52:21.575257"], ["updated_at", "2019-04-01 20:52:21.575257"]]
+  ↳ db/seeds.rb:89
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:89
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlaylist Load (0.6ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mPlaylist Load (0.6ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlaylist Load (0.5ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1 LIMIT $2[0m  [["playlist_id", 2], ["LIMIT", 11]]
