@@ -62,6 +62,19 @@ s18 = Song.create(name: 'Ungrateful', album_id: al9.id, artist_id: ar5.id, genre
 s19 = Song.create(name: 'A Moment of Silence', album_id: al10.id, artist_id: ar5.id, genre_id: g3.id)
 s20 = Song.create(name: 'Point/Counterpoint', album_id: al10.id, artist_id: ar5.id, genre_id: g3.id)
 
+ug1 = UserGenre.create(user_id: phil.id, genre_id: g1.id)
+
+uar1 = UserArtist.create(user_id: phil.id, artist_id: ar5.id)
+
+ual1 = UserAlbum.create(user_id: phil.id, album_id: al3.id)
+ual2 = UserAlbum.create(user_id: phil.id, album_id: al7.id)
+
+us1 = UserSong.create(user_id: phil.id, song_id: s1.id)
+us2 = UserSong.create(user_id: phil.id, song_id: s3.id)
+us3 = UserSong.create(user_id: phil.id, song_id: s17.id)
+us4 = UserSong.create(user_id: phil.id, song_id: s10.id)
+us5 = UserSong.create(user_id: phil.id, song_id: s15.id)
+
 pl1 = Playlist.create(name: 'Phil playlist 1', user_id: phil.id)
 pl2 = Playlist.create(name: 'untitled playlist 3', user_id: phil.id)
 pl3 = Playlist.create(name: 'boybands playlist', user_id: phil.id)

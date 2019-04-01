@@ -2,13 +2,13 @@
 class User < ApplicationRecord
 
   has_many :playlists
-  has_many :genre_favorites
-  has_many :artist_favorites
-  has_many :album_favorites
-  has_many :song_favorites
-  has_many :genres, through: :genre_favorites
-  has_many :artists, through: :artist_favorites
-  has_many :albums, through: :album_favorites
-  has_many :songs, through: :song_favorites
+  has_many :user_genres
+  has_many :user_artists
+  has_many :user_albums
+  has_many :user_songs
+  has_many :genres, through: :user_genres
+  has_many :artists, through: :user_artists
+  has_many :albums, through: :user_albums
+  has_many :songs, through: :user_songs
 
 end
