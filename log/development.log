@@ -1418,3 +1418,123 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 80ms (Views: 54.6ms | ActiveRecord: 11.7ms)
 
 
+Started GET "/users" for ::1 at 2019-04-01 17:18:01 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.5ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Playlist id: 1, name: "Phil playlist 1", user_id: 2, created_at: "2019-04-01 20:52:21", updated_at: "2019-04-01 20:52:21">
+[active_model_serializers] No serializer found for resource: #<Playlist id: 1, name: "Phil playlist 1", user_id: 2, created_at: "2019-04-01 20:52:21", updated_at: "2019-04-01 20:52:21">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (63.71ms)
+Completed 200 OK in 105ms (Views: 81.5ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:18:40 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.5ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (30.94ms)
+Completed 200 OK in 84ms (Views: 32.9ms | ActiveRecord: 33.7ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:19:37 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.93ms)
+Completed 200 OK in 40ms (Views: 20.0ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:19:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.6ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.55ms)
+Completed 200 OK in 52ms (Views: 25.7ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:21:23 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.74ms)
+Completed 200 OK in 61ms (Views: 35.6ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:21:41 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.56ms)
+Completed 200 OK in 43ms (Views: 20.3ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:26:18 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (58.66ms)
+Completed 200 OK in 80ms (Views: 48.4ms | ActiveRecord: 22.8ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:26:27 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (40.87ms)
+Completed 200 OK in 63ms (Views: 30.7ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:26:55 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   ↳ app/serializers/playlist_serializer.rb:7
+[active_model_serializers]   [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers]   ↳ app/serializers/playlist_serializer.rb:7
+[active_model_serializers]   [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 3]]
+[active_model_serializers]   ↳ app/serializers/playlist_serializer.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (64.01ms)
+Completed 200 OK in 84ms (Views: 54.5ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/users" for ::1 at 2019-04-01 17:28:13 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists" WHERE "playlists"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers]   [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlist_songs" ON "songs"."id" = "playlist_songs"."song_id" WHERE "playlist_songs"."playlist_id" = $1[0m  [["playlist_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (49.51ms)
+Completed 200 OK in 72ms (Views: 40.2ms | ActiveRecord: 23.2ms)
+
+
