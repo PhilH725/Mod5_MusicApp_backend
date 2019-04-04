@@ -8,7 +8,9 @@ class PlaylistSerializer < ActiveModel::Serializer
       @song = Song.find(i.id)
       {
         id: @song.id,
-        name: @song.name
+        name: @song.name,
+        artist: @song.artist.name,
+        album: @song.album.name
       }
     end
   end
