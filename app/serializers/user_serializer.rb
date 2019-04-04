@@ -8,9 +8,11 @@ class UserSerializer < ActiveModel::Serializer
     object.user_songs.map do |i|
       @song = Song.find(i.song_id)
       @album = Album.find(@song.album_id)
+      @artist = Artist.find(@song.artist_id)
       {
         id: @song.id,
         name: @song.name,
+        artist: @artist.name,
         album: @album.name
       }
     end
