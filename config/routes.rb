@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :genres
   resources :playlists
   resources :playlist_songs, only: :create
+  resources :user_songs, only: :create
 end
