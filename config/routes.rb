@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :playlists
   resources :playlist_songs, only: :create
   resources :user_songs, only: :create
+  resources :user_artists, only: :create
+  resources :user_albums, only: :create
+  resources :user_genres, only: :create
 end
