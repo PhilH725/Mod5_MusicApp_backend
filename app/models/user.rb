@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :albums, through: :user_albums
   has_many :songs, through: :user_songs
 
+  has_secure_password
+
 end

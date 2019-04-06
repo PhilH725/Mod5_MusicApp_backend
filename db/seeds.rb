@@ -18,7 +18,7 @@ UserAlbum.destroy_all
 UserGenre.destroy_all
 PlaylistSong.destroy_all
 
-phil = User.create(username: 'Phil')
+phil = User.create(username: 'Phil', password: '111')
 
 g1 = Genre.create(name: 'Punk Rock')
 g2 = Genre.create(name: 'Pop')
