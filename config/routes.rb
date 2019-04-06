@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :user_artists, only: :create
   resources :user_albums, only: :create
   resources :user_genres, only: :create
+
+  post '/login', to: 'auth#create'
 end
