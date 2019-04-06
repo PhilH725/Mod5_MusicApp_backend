@@ -12,9 +12,13 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    # byebug
     @playlist = Playlist.create(playlist_params)
-    # byebug
+    render json: @playlist
+  end
+
+  def destroy
+    @playlist = Playlist.find(params[:id])
+    @playlist.destroy
     render json: @playlist
   end
 
