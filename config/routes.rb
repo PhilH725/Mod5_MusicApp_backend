@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :user_genres, only: :create
 
   post '/login', to: 'auth#create'
+  post '/profile', to: 'users#profile'
 end
