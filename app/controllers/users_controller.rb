@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     render json: @user
   end
 
-  def profile
+  def token
     token = request.headers["Authentication"].split(' ')[1]
     payload = decode(token)
     @user = User.find(payload["user_id"])
