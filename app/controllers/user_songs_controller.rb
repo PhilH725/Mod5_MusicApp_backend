@@ -10,9 +10,7 @@ class UserSongsController < ApplicationController
     @song = Song.where(:name => params[:songData][:name], :artist_id => @artist.id).first_or_create do |song|
                             song.album_id = Album.find_by(name: params[:songData][:albumName]).id
                         end
-    # byebug
     UserSong.create(user_id: params[:user_id], song_id: @song.id)
-    # byebug
   end
 
 end

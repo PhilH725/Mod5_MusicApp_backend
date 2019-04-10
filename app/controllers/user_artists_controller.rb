@@ -2,7 +2,8 @@
 class UserArtistsController < ApplicationController
 
   def create
-    UserArtist.create(user_id: params[:user_id], artist_id: params[:artist_id])
+    @artist = Artist.find_or_create_by(name: params[:artistData][:name])
+    UserArtist.find_or_create_by(user_id: params[:user_id], artist_id: @artist.id)
   end
 
 end
