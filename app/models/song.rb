@@ -1,7 +1,7 @@
 
 class Song < ApplicationRecord
 
-  belongs_to :genre
+  belongs_to :genre, optional: true
   belongs_to :artist
   belongs_to :album
   has_many :song_favorites
