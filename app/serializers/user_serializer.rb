@@ -34,7 +34,6 @@ class UserSerializer < ActiveModel::Serializer
       {
         id: @album.id,
         name: @album.name,
-        release_year: @album.release_year,
         songs: Song.all.select{|s| s.album_id == @album.id}.map{|i| {id: i.id, name: i.name, artist: Artist.find(i.artist_id).name}}
       }
     end

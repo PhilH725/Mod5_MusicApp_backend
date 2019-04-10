@@ -1,7 +1,7 @@
 
 class AlbumSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :release_year
+  attributes :id, :name
   has_many :songs
 
 end
