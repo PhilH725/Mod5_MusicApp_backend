@@ -19,6 +19,11 @@ class UserSongsController < ApplicationController
     render json: @song
   end
 
+  def destroy
+    @song_favorite = UserSong.find_by(:user_id => params[:user_id], :song_id => params[:song_id])
+    @song_favorite.destroy
+  end
+
 end
 
 #artist created through fave song/artist have no bio until refresh
