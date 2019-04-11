@@ -4,6 +4,7 @@ class UserSongsController < ApplicationController
   def create
     @artist = Artist.find_or_create_by(name: params[:songData][:artistName]) do |artist|
       artist.artist_image = params[:artistImage]
+      artist.bio = params[:artistData][:summary]
     end
     @album = Album.where(:name => params[:songData][:albumName]).first_or_create do |album|
       album.artist_id = @artist.id

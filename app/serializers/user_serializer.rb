@@ -28,7 +28,8 @@ class UserSerializer < ActiveModel::Serializer
       {
         id: @artist.id,
         name: @artist.name,
-        image: @artist.artist_image
+        image: @artist.artist_image,
+        bio: @artist.bio
       }
     end
   end

@@ -18,6 +18,7 @@ class UserAlbumsController < ApplicationController
 
     UserAlbum.create(user_id: params[:user_id], album_id: @album.id)
 
+
     render json: {albumData: @album, trackList: @trackList}
   end
 
