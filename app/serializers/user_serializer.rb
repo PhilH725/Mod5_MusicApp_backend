@@ -13,7 +13,11 @@ class UserSerializer < ActiveModel::Serializer
         id: @song.id,
         name: @song.name,
         artist: @artist.name,
-        album: @album.name
+        album: {
+          name: @album.name,
+          image: @album.album_image
+        }
+
       }
     end
   end
