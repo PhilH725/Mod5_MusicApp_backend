@@ -2,7 +2,6 @@
 class UserAlbumsController < ApplicationController
 
   def create
-    # byebug
     @artist = Artist.where(:name => params[:albumData][:artistName]).first_or_create do |artist|
       artist.artist_image = params[:artistData][:images][3]
       artist.bio = params[:artistData][:summary]
@@ -18,8 +17,6 @@ class UserAlbumsController < ApplicationController
     end
 
     UserAlbum.create(user_id: params[:user_id], album_id: @album.id)
-
-    # byebug
 
     render json: {albumData: @album, trackList: @trackList}
   end
