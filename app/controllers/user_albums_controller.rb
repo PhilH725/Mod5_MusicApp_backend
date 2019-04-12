@@ -22,4 +22,10 @@ class UserAlbumsController < ApplicationController
     render json: {albumData: @album, trackList: @trackList}
   end
 
+  def destroy
+    @album_favorite = UserAlbum.find_by(:user_id => params[:user_id], :album_id => params[:album_id])
+    @album_favorite.destroy
+  end
+
+
 end
