@@ -19,7 +19,7 @@ class UserAlbumsController < ApplicationController
     UserAlbum.create(user_id: params[:user_id], album_id: @album.id)
 
 
-    render json: {albumData: @album, trackList: @trackList}
+    render json: {albumData: @album, trackList: @trackList, artistName: @artist.name}
   end
 
   def destroy

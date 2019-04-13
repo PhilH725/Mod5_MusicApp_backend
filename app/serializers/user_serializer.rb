@@ -15,6 +15,7 @@ class UserSerializer < ActiveModel::Serializer
         artist: @artist.name,
         album: {
           name: @album.name,
+          artistName: @artist.name,
           image: @album.album_image
         }
 
@@ -40,6 +41,7 @@ class UserSerializer < ActiveModel::Serializer
       {
         id: @album.id,
         name: @album.name,
+        artistName: Artist.find(@album.artist_id).name,
         image: @album.album_image,
         songs: Song.all.select{|s| s.album_id == @album.id}.map{|i| {id: i.id, name: i.name, artist: Artist.find(i.artist_id).name}}
       }
