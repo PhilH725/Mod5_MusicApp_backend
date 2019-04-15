@@ -13,7 +13,7 @@ class UserSongsController < ApplicationController
       artist.artist_image = params[:artistData][:images][3]
       artist.bio = params[:artistData][:summary]
     end
-    # byebug
+
     @album = Album.where(:name => params[:songData][:albumName]).first_or_create do |album|
       album.artist_id = @artist.id
       album.album_image = albumImage

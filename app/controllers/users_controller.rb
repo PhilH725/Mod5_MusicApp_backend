@@ -23,20 +23,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def hi
-    byebug
-  end
-
   def song
     main_URL = 'https://www.youtube.com/results?search_query='
     search_URL = (params[:songName].split(' ') + params[:artistName].split(' ')).join('+')
     url = main_URL + search_URL
-    encoding_options = {
-      :invalid           => :replace,  # Replace invalid byte sequences
-      :undef             => :replace,  # Replace anything not defined in ASCII
-      :replace           => '',        # Use a blank for those replacements
-      :universal_newline => true       # Always break lines with \n
-    }
+    encoding_options = {:invalid => :replace, :undef => :replace, :replace => '', :universal_newline => true}
     url = url.encode(Encoding.find('ASCII'), encoding_options)
 
     doc = Nokogiri::HTML(open(url))
