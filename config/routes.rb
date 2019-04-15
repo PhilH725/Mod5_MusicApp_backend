@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   post '/login', to: 'auth#create'
   get '/verify_token', to: 'users#token'
-  delete '/user_songs', to: 'user_songs#destroy'
+  delete '/user_songs/:id', to: 'user_songs#destroy'
   delete '/user_artists', to: 'user_artists#destroy'
   delete '/user_albums', to: 'user_albums#destroy'
+  post '/get_song_url', to: 'users#song'
 end

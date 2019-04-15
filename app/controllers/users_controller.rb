@@ -1,4 +1,7 @@
 
+require 'nokogiri'
+require 'open-uri'
+
 class UsersController < ApplicationController
 
   def index
@@ -18,6 +21,24 @@ class UsersController < ApplicationController
     if @user
       render json: @user
     end
+  end
+
+  def hi
+    byebug
+  end
+
+  def song
+    # byebug
+    main_URL = 'https://www.youtube.com/results?search_query='
+    search_URL = (params[:songName].split(' ') + params[:artistName].split(' ')).join('+')
+    doc = Nokogiri::HTML(open(main_URL + search_URL))
+    string_doc = doc.to_s
+    @id = string_doc.split("watch?v=")[1][0...25].split('"')[0]
+    # byebug
+
+    # document.querySelector('.yt-simple-endpoint.style-scope.ytd-video-renderer')
+    # @id = 'hi'
+    render json: {id: @id}
   end
 
 end
