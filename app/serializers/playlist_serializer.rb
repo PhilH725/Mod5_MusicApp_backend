@@ -10,7 +10,8 @@ class PlaylistSerializer < ActiveModel::Serializer
         id: @song.id,
         name: @song.name,
         artist: @song.artist.name,
-        album: @song.album.name
+        album: @song.album.name,
+        albumImage: @song.album.album_image
       }
     end
   end
