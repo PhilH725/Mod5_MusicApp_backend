@@ -1,7 +1,7 @@
 
 class PlaylistSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :songs
+  attributes :id, :name, :published, :songs
 
   def songs
     object.songs.map do |i|

@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   delete '/user_artists', to: 'user_artists#destroy'
   delete '/user_albums', to: 'user_albums#destroy'
   post '/get_song_url', to: 'users#song'
+  get '/published_playlists', to: 'playlists#published_playlists'
 end
