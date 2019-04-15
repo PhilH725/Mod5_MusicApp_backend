@@ -28,16 +28,21 @@ class UsersController < ApplicationController
   end
 
   def song
-    # byebug
     main_URL = 'https://www.youtube.com/results?search_query='
     search_URL = (params[:songName].split(' ') + params[:artistName].split(' ')).join('+')
-    doc = Nokogiri::HTML(open(main_URL + search_URL))
+    url = main_URL + search_URL
+    encoding_options = {
+      :invalid           => :replace,  # Replace invalid byte sequences
+      :undef             => :replace,  # Replace anything not defined in ASCII
+      :replace           => '',        # Use a blank for those replacements
+      :universal_newline => true       # Always break lines with \n
+    }
+    url = url.encode(Encoding.find('ASCII'), encoding_options)
+
+    doc = Nokogiri::HTML(open(url))
     string_doc = doc.to_s
     @id = string_doc.split("watch?v=")[1][0...25].split('"')[0]
-    # byebug
 
-    # document.querySelector('.yt-simple-endpoint.style-scope.ytd-video-renderer')
-    # @id = 'hi'
     render json: {id: @id}
   end
 
