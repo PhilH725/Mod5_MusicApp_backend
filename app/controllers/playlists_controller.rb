@@ -7,7 +7,7 @@ class PlaylistsController < ApplicationController
   end
 
   def published_playlists
-    @playlists = Playlist.all.select{|i| !i.published}
+    @playlists = Playlist.all.select{|i| i.published}
     render json: @playlists
   end
 
@@ -36,7 +36,7 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.permit(:user_id, :name, :published)
+    params.permit(:user_id, :name, :published, :likes)
   end
 
 end

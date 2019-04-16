@@ -1,7 +1,7 @@
 
 class PlaylistSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :published, :user, :songs
+  attributes :id, :name, :published, :likes, :user, :songs
 
   def user
     @user = User.find(object.user_id)
