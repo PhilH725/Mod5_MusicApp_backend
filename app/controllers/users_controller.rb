@@ -24,9 +24,9 @@ class UsersController < ApplicationController
   end
 
   def song
-    main_URL = 'https://www.youtube.com/results?search_query='
-    search_URL = (params[:songName].split(' ') + params[:artistName].split(' ')).join('+')
-    url = main_URL + search_URL
+    main_url = 'https://www.youtube.com/results?search_query='
+    search_url = (params[:songName].split(' ') + params[:artistName].split(' ')).join('+')
+    url = main_url + search_url
     encoding_options = {:invalid => :replace, :undef => :replace, :replace => '', :universal_newline => true}
     url = url.encode(Encoding.find('ASCII'), encoding_options)
 
