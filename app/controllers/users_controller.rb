@@ -14,6 +14,11 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def create
+    @user = User.create(username: params[:username], password: params[:password])
+    render json: @user
+  end
+
   def token
     token = request.headers["Authentication"].split(' ')[1]
     payload = decode(token)

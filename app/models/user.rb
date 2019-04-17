@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :albums, through: :user_albums
   has_many :songs, through: :user_songs
 
+  validates :username, presence: true, uniqueness: true
+  validates :password, presence: true
+
   has_secure_password
 
 end
