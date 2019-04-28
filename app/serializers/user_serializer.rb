@@ -1,7 +1,7 @@
 
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :my_songs, :my_artists, :my_albums, :my_genres
+  attributes :id, :username, :my_songs, :my_artists, :my_albums
   has_many :playlists
 
   def my_songs
@@ -44,16 +44,6 @@ class UserSerializer < ActiveModel::Serializer
         artistName: Artist.find(@album.artist_id).name,
         image: @album.album_image,
         songs: Song.all.select{|s| s.album_id == @album.id}.map{|i| {id: i.id, name: i.name, artist: Artist.find(i.artist_id).name}}
-      }
-    end
-  end
-
-  def my_genres
-    object.user_genres.map do |i|
-      @genre = Genre.find(i.genre_id)
-      {
-        id: @genre.id,
-        name: @genre.name
       }
     end
   end
